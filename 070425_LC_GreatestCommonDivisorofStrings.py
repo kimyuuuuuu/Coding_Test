@@ -3,13 +3,20 @@ def gcdOfStrings(str1: str, str2: str) -> str:
         return ""
     
     else :
-        if len(str1) % len(str2) == 0 :
-            return min(str1, str2)
-        else :
-            min_str = min(str1, str2)
-            i = len(min_str) // 2
-            return min_str[:i]
-    
+        str = min(str1, str2)
+        len1, len2 = len(str1), len(str2)
+        
+        for i in range(len(str), 0, -1) :
+            base = str[:i]
+            len_base = len(base)
+            
+            if (len1 % len_base == 0) and ( len2 % len_base == 0):
+                if ((base * (len1 // len_base)) in str1) and ((base * (len2 // len_base)) in str2) :
+                    return base
+                else :
+                    return ""
+
+
 if __name__ == '__main__' :
     str1 = input()
     str2 = input() 
