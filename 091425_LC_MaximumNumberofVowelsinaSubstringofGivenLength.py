@@ -23,7 +23,7 @@ if __name__ == '__main__' :
 
   print(string, k)
 
-  print(findMaxAverage(string, k))
+  print(maxVowels(string, k))
 
   # error
   # 1. s[i] in 'aeiou' : vowel -=1 -> 새로 들어오는 모음인데 뺌
