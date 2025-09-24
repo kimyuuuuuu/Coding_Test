@@ -1,14 +1,20 @@
 def pivotIndex(nums: list[int]) -> int:
-    prefix = [0] * (len(gain)+1)
+    prefix = [0] * (len(nums)+1)
+    prefix_len = len(prefix)
     
-    for i in range(1, len(gain)+1) :
-        prefix[i] = gain[i-1] + prefix[i-1]
+    # create prefix sum 
+    for i in range(1, len(nums)+1):
+        prefix[i] = nums[i-1] + prefix[i-1]
         
-    return max(prefix)
+        
+    for j in range(len(nums)) :
+        if prefix[0] == prefix[prefix_len-j] :
+            return j 
     
+    return -1
     
 if __name__ == '__main__':
-    gain = list(map(int, input.split(',')))
+    nums = list(map(int, input().split(',')))
     
-    print(pivotIndex(gain))
+    print(pivotIndex(nums))
     
